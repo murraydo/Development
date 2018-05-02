@@ -32,7 +32,7 @@ public class Konsole {
     }
 
     private void navigation() {
-        System.out.println("**************Willkommen, was k�nnen wir f�r Sie tun??********************" + ls
+        System.out.println("**************Willkommen, was können wir für Sie tun??********************" + ls
                 + "******1*******: Versicherung abschliessen" + ls
                 + "******2*******: Schaden melden" + ls
                 + "******3*******: Beitragsrechner" + ls
@@ -71,20 +71,20 @@ public class Konsole {
         person.setOrt(eingabe.nextLine());
         System.out.println("Bitte geben Sie Ihre Telefonnummer ein");
         person.setTelefon(eingabe.nextLine());
-        System.out.println("Bitte geben Sie die Tierart an, die Sie versichern m�chten");
+        System.out.println("Bitte geben Sie die Tierart an, die Sie versichern möchten");
         
         for (ZuVersicherndeTiere zVT : ZuVersicherndeTiere.values()) {
-            System.out.println(zVT);
+            System.out.print(zVT + " - ");
         }
         tier.setTierArt(eingabe.nextLine());
-        System.out.println("Bitte bestat�tigen Sie mit der Eingabe der Ziffer 1, dass Sie die ABG gelesen haben und einverstanden sind. "
+        System.out.println("Bitte bestatätigen Sie mit der Eingabe der Ziffer 1, dass Sie die ABG gelesen haben und einverstanden sind. "
                 + "Mit der Eingabe der Ziffer 2 brechen Sie den Vorgang ab " + "\n");
         int x = 1;
         do {
             if (eingabe.nextInt() == 1) {
                 System.out.println("######################## Bestia Tierversicherung ##################################################" + ls + ls
                         + "Vielen Dank, dass Sie Ihr Einversndnis erteilt haben. " + "\n"
-                        + "Bitte �berpr�fen Sie Ihre Angaben auf Vollst�ndigkeit. " + " \n"
+                        + "Bitte überprüfen Sie Ihre Angaben auf Vollst�ndigkeit. " + " \n"
                         + "Vorname: " + person.getVorname() + ls
                         + "Nachname: " + person.getNachname() + ls
                         + "Strasse: " + person.getStrasse() + ls
@@ -92,7 +92,7 @@ public class Konsole {
                         + "Telefonnummer: " + person.getTelefon() + ls
                         + "Zu versicherndes Tier: " + tier.getTierArt() + ls
                         + "AGB gelesen: " + person.getHatAgbGelesen());
-                System.out.println("Bitte best�tigen Sie die Vollst�ndigkeit Ihrer Angaben mit der Eingabe der Ziffer 1" + ls);
+                System.out.println("Bitte best�tigen Sie die Vollständigkeit Ihrer Angaben mit der Eingabe der Ziffer 1" + ls);
                 if (eingabe.nextInt() == 1) {
                     x = 2;
                     vs.anlegen(person, vertrag, tier);
@@ -101,7 +101,7 @@ public class Konsole {
                     }
                 }
             } else {
-                System.out.println("Sorry aber ohne die Best�tigung k�nnen wir Ihnen keine Versicherunug anbieten");
+                System.out.println("Sorry aber ohne die Bestätigung können wir Ihnen keine Versicherunug anbieten");
                 navigation();
             }
         } while (x == 1);
@@ -119,7 +119,7 @@ public class Konsole {
      */
     private void beitragsRechner() {
         Tier tierBeitragRechner = new Tier();
-        System.out.println("Bitte geben Sie die Tierart an, die Sie versichern m�chten");
+        System.out.println("Bitte geben Sie die Tierart an, die Sie versichern möchten");
         for (ZuVersicherndeTiere zVT : ZuVersicherndeTiere.values()) {
             System.out.println(zVT);
         }

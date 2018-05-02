@@ -1,13 +1,16 @@
 de\versicherung\model\PersonDoa.class
+de\versicherung\logic\Schaden.class
 de\versicherung\logic\Vertrag.class
 de\versicherung\logic\Person.class
 de\versicherung\model\BehandlungDao.class
+de\versicherung\logic\Katze.class
+de\versicherung\logic\Krankheiten.class
 de\versicherung\model\PersonDaoImpl.class
 de\versicherung\model\VertragDao.class
 de\versicherung\gui\Konsole.class
-de\versicherung\gui\ZuVersicherndeTiere.class
 de\versicherung\model\VertragDaoImpl.class
 bestiaTierversicherung\Start.class
+de\versicherung\logic\ZuVersicherndeTiere.class
 de\versicherung\logic\VertragsService.class
 de\versicherung\logic\Tier.class
 de\versicherung\model\BehandlungDaoImpl.class

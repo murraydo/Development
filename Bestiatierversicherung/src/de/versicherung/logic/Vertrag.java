@@ -2,41 +2,42 @@ package de.versicherung.logic;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * @author Murat Vatandas
- * Datumsformat wird auf "dd.MM.yyyy" gesetzt
- * private Person personDaten
- * private string vsnr
- * private string date
- * private boolean statusVertrag = false;
- * private Tier versichertesTier;
- * private boolean abgeschlossen = flase
+ * @author Murat Vatandas Datumsformat wird auf "dd.MM.yyyy" gesetzt private
+ * Person personDaten private string vsnr private string date private boolean
+ * statusVertrag = false; private Tier versichertesTier; private boolean
+ * abgeschlossen = flase
  */
-
 public class Vertrag {
 
     LocalDate now = LocalDate.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     String formatDateTime = now.format(formatter);
     private Person personDaten;
-    private int vertragsId;
-    private String vsnr = "123456789";               // Versicherungsnummer
-    private String date;   // Beginn des Vertrages
-    //private String endeVertrag;     // Ende des Vertrages
-    //private double deckungVertrag;  // Welche Art der Versicherung wurde hier ausgewählt( Ohne Selbstbeteiligung, mit 50% Selbsbeteiligung oder mit einer Selbstbeteiligung von 25%)
-    private boolean statusVertrag = false;  // Ist der Vertrag aktiv
-    //private double praemie;
     private Tier versichertesTier;
-    private boolean abgeschlossen = false;
-    
-    public Vertrag(){
-        
+    private List<Schaden> alleSchaeden = new ArrayList<>();
+    private int vertragsId;
+//    private String vsnr = "123456789"; // Versicherungsnummer
+    private String date;   // Beginn des Vertrages
+
+    public Vertrag() {
+
     }
 
-    public Vertrag(String vsnr, String beginnVertrag, boolean statusVertrag, Tier versichertesTier) {
+    /**
+     * Vertrag soll beeinhalten folgende Daten:
+     * personenDaten -> personenId
+     * fortlaufende Versicherungsnummer -> Vertrags;
+     * beginn des Vertrages (zuerst automatisch bei Abschluss des Vertrages zu setzen)
+     * versicherte Tier
+     * ein Feld für Schaeden (null);
+    */
+    public Vertrag(String vsnr, String beginnVertrag, Tier versichertesTier) {
         this.personDaten = personDaten;
-        this.vsnr = vsnr;
+//        this.vsnr = vsnr;
         this.date = beginnVertrag;
         this.versichertesTier = versichertesTier;
     }
@@ -49,8 +50,6 @@ public class Vertrag {
         this.vertragsId = vertragsId;
     }
 
-    
-    
     public Person getPersonDaten() {
         return personDaten;
     }
@@ -58,8 +57,6 @@ public class Vertrag {
     public void setPersonDaten(Person personDaten) {
         this.personDaten = personDaten;
     }
-    
-    
 
     public LocalDate getNow() {
         return now;
@@ -85,13 +82,13 @@ public class Vertrag {
         this.formatDateTime = formatDateTime;
     }
 
-    public String getVsnr() {
-        return vsnr;
-    }
-
-    public void setVsnr(String vsnr) {
-        this.vsnr = vsnr;
-    }
+//    public String getVsnr() {
+//        return vsnr;
+//    }
+//
+//    public void setVsnr(String vsnr) {
+//        this.vsnr = vsnr;
+//    }
 
     public String getBeginnVertrag() {
         return date;
@@ -108,15 +105,7 @@ public class Vertrag {
     public void setEndeVertrag(String endeVertrag) {
         this.date = endeVertrag;
     }
-
-    public boolean isStatusVertrag() {
-        return statusVertrag;
-    }
-
-    public void setStatusVertrag(boolean statusVertrag) {
-        this.statusVertrag = statusVertrag;
-    }
-
+    
     public Tier getVersichertesTier() {
         return versichertesTier;
     }
@@ -124,17 +113,12 @@ public class Vertrag {
     public void setVersichertesTier(Tier vertrag) {
         this.versichertesTier = vertrag;
     }
+    
 
-    public boolean isAbgeschlossen() {
-        return abgeschlossen;
-    }
 
-    public void setAbgeschlossen(boolean abgeschlossen) {
-        this.abgeschlossen = abgeschlossen;
-    }
     @Override
-    public String toString(){
-        return personDaten + "\n" + "Versicherungsnummer: " + getVsnr() + "\n" + "Vertragsnummer: " + getVertragsId() + " \n" + "zu versicherndes Tier: " + versichertesTier;
-        
+    public String toString() {
+        return personDaten + "\n" + "Vertragsnummer: " + getVertragsId() + " \n" + "zu versicherndes Tier: " + versichertesTier;
+
     }
 }
