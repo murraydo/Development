@@ -19,6 +19,9 @@ public class PersonDaoImpl implements PersonDoa {
     @Override
     public void addPerson(Person t) {
 
+        t.setPersonenId(personen.size() + 1);
+        
+        
     }
     @Override
     public void updatePerson(Person t){

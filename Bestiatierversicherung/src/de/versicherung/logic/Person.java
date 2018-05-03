@@ -5,15 +5,27 @@ package de.versicherung.logic;
  * @author Murat Vatandas
  */
 public class Person {
-    private int personId;
+    private int personenId;
     private String vorname;
     private String nachname;
     private String strasse;
     private String plz;
     private String ort;
     private String telefon;
-    private int hatAgbGelesen;
+    private boolean hatAgbGelesen;
+    
+    // Getter und Setter 
 
+    public int getPersonenId() {
+        return personenId;
+    }
+
+    public void setPersonenId(int personenId) {
+        this.personenId = personenId;
+    }
+
+    
+    
     public String getVorname() {
         return vorname;
     }
@@ -62,21 +74,14 @@ public class Person {
         this.telefon = telefon;
     }
     
-    public int getHatAgbGelesen() {
+    public boolean getHatAgbGelesen() {
         return hatAgbGelesen;
     }
 
-    public void setHatAgbGelesen(int hatAgbGelesen) {
+    public void setHatAgbGelesen(boolean hatAgbGelesen) {
         this.hatAgbGelesen = hatAgbGelesen;
     }
-    
-    public int getPersonId() {
-        return personId;
-    }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
-    }
      @Override
     public String toString(){
         return "######################## Bestia Tierversicherung ##################################################" +"\n"
@@ -85,6 +90,6 @@ public class Person {
                 + "Strasse: " + this.getStrasse() + "\n"
                 + "Wohnort: " + this.getOrt() + "\n"
                 + "Telefonnummer: " + this.getTelefon()+ "\n"
-                + "Einverst‰ndiserkl‰rung AGB" + this.hatAgbGelesen;
+                + "Einverst√§ndiserkl√§rung AGB" + this.hatAgbGelesen;
     }
 }

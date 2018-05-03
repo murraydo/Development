@@ -12,33 +12,24 @@ import java.util.List;
  * abgeschlossen = flase
  */
 public class Vertrag {
-
-    LocalDate now = LocalDate.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-    String formatDateTime = now.format(formatter);
     private Person personDaten;
+    private int vertragsId; // VertragsId wird automatisch erstellt
+    private long personenId =  (long) Math.random() ; // Per random erzeugte Versicherungsnummer, die dem Vertrag hinzugefügt wird
     private Tier versichertesTier;
     private List<Schaden> alleSchaeden = new ArrayList<>();
-    private int vertragsId;
-//    private String vsnr = "123456789"; // Versicherungsnummer
-    private String date;   // Beginn des Vertrages
 
     public Vertrag() {
-
     }
-
     /**
      * Vertrag soll beeinhalten folgende Daten:
-     * personenDaten -> personenId
-     * fortlaufende Versicherungsnummer -> Vertrags;
-     * beginn des Vertrages (zuerst automatisch bei Abschluss des Vertrages zu setzen)
+     * personenDaten -> Vorname, Nachname -> die Daten werden dem Vertrag hinzugefügt
+     * fortlaufende Versicherungsnummer -> inkrementell hochgezählt VertragsId (wird bei der Erstellung des Vertrages im VertragsService automatisch erzeugt);
+     * personenId -> wird bei der Erstellung des Vertrages automatsich erzeugt
      * versicherte Tier
-     * ein Feld für Schaeden (null);
     */
-    public Vertrag(String vsnr, String beginnVertrag, Tier versichertesTier) {
+    public Vertrag(Person personenDaten, long personenId, Tier versichertesTier) {
         this.personDaten = personDaten;
-//        this.vsnr = vsnr;
-        this.date = beginnVertrag;
+        this.personenId = personenId;
         this.versichertesTier = versichertesTier;
     }
 
@@ -57,53 +48,13 @@ public class Vertrag {
     public void setPersonDaten(Person personDaten) {
         this.personDaten = personDaten;
     }
-
-    public LocalDate getNow() {
-        return now;
+    
+    public long getPersonenId() {
+        return personenId;
     }
 
-    public void setNow(LocalDate now) {
-        this.now = now;
-    }
-
-    public DateTimeFormatter getFormatter() {
-        return formatter;
-    }
-
-    public void setFormatter(DateTimeFormatter formatter) {
-        this.formatter = formatter;
-    }
-
-    public String getFormatDateTime() {
-        return formatDateTime;
-    }
-
-    public void setFormatDateTime(String formatDateTime) {
-        this.formatDateTime = formatDateTime;
-    }
-
-//    public String getVsnr() {
-//        return vsnr;
-//    }
-//
-//    public void setVsnr(String vsnr) {
-//        this.vsnr = vsnr;
-//    }
-
-    public String getBeginnVertrag() {
-        return date;
-    }
-
-    public void setBeginnVertrag(String beginnVertrag) {
-        this.date = beginnVertrag;
-    }
-
-    public String getEndeVertrag() {
-        return date;
-    }
-
-    public void setEndeVertrag(String endeVertrag) {
-        this.date = endeVertrag;
+    public void setPersonenId(long personenId) {
+        this.personenId = personenId;
     }
     
     public Tier getVersichertesTier() {
@@ -118,7 +69,8 @@ public class Vertrag {
 
     @Override
     public String toString() {
-        return personDaten + "\n" + "Vertragsnummer: " + getVertragsId() + " \n" + "zu versicherndes Tier: " + versichertesTier;
+        return personDaten + "\n" + "Personen-Identifikationsnummer " + getPersonenId() + "\n"  
+                + "Vertragsnummer: " + getVertragsId() + " \n" + "zu versicherndes Tier: " + versichertesTier;
 
     }
 }
