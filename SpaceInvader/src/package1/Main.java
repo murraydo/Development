@@ -12,5 +12,8 @@ public class Main {
 		new FlammenAnimation();
 		new GegnerMovement();
 		new TrophaenMovement();
+                new GegnerKollision();
+                new TrophaenKollision();
+                new Explosion();
 	}
 }

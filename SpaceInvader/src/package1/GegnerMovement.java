@@ -8,10 +8,9 @@ public class GegnerMovement {
 	private int temp = 0;
 
 	public GegnerMovement() {
-		
 		for(int i=0;i<=4;i++) {
-			Var.gegenerX[i]=20+temp;
-			Var.gegenerY[i]= -100-temp;
+			Var.gegnerX[i]=20+temp;
+			Var.gegnerY[i]= -100-temp;
 			
 			temp +=160;
 		}
@@ -23,10 +22,10 @@ public class GegnerMovement {
 			public void run() {
 
 				for(int i=0;i<=4;i++) {
-					Var.gegenerY[i] += Var.gegnerSpeed[i];
+					Var.gegnerY[i] += Var.gegnerSpeed[i];
 					
-					if(Var.gegenerY[i]>= Var.screenheight) {
-						Var.gegenerY[i] = -100;
+					if(Var.gegnerY[i]>= Var.screenheight) {
+						Var.gegnerY[i] = -100;
 					}
 				}
 				
