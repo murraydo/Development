@@ -53,6 +53,7 @@ public class FensterFX extends Application implements EventHandler<ActionEvent>{
         buchen.setOnAction(this);
         
         Scene szene = new Scene(root, 500, 200);
+        szene.getStylesheets().add(getClass().getResource("tischres.css").toExternalForm());
         stage.setScene(szene);
         stage.show();
     }
