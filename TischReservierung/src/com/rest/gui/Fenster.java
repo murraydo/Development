@@ -36,7 +36,7 @@ public class Fenster extends JFrame{
         JButton buchen = new JButton("Buchen");
         this.add(buchen);
         buchen.addActionListener(ae->{
-            int anzahl = 5;//HIER ToDO
+            int anzahl = (Integer)auswahl.getSelectedItem();
             reserviert=bs.buchen(anzahl);
             JDialog tischAnwort = new JDialog();
             tischAnwort.setTitle(reserviert.toString());

@@ -8,6 +8,7 @@ package tischreservierung;
 
 import com.rest.gui.Fenster;
 import com.rest.gui.FensterFX;
+
 import com.rest.gui.Konsole;
 import com.rest.logic.BuchungsService;
 
@@ -20,20 +21,20 @@ import com.rest.model.TischDaoListImpl;
  */
 public class Start {
     public static int k;
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
-     k = 0;
+    public static void main(String[] args) {
+      k=0;
+      TischMaker tischMaker = new TischMaker();
       TischDao tischDao = new TischDaoListImpl();
       BuchungsService bs = new BuchungsService(tischDao);
       //Konsole gui = new Konsole(bs);
 //      Fenster gui = new Fenster(bs);
-//      gui.setVisible(true);
-
-    new FensterFX().anzeigen(bs);
-    
+//     gui.setVisible(true);
+        
+       new FensterFX().anzeigen(bs); 
+// 
     }
     
 }
