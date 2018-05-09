@@ -41,4 +41,15 @@ public class TischMaker {
     public List<Tisch> getAllTische() {
         return tische;
     }
+
+    public String[] getRestaurantArt() {
+        return restaurantArt;
+    }
+
+    public String[] getRestaurantOrt() {
+        return restaurantOrt;
+    }
+    
+    
+    
 }

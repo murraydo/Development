@@ -7,6 +7,7 @@ package com.rest.gui;
 
 import com.rest.logic.BuchungsService;
 import com.rest.logic.Tisch;
+import com.rest.model.TischMaker;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,6 +39,7 @@ public class FensterFX extends Application implements EventHandler<ActionEvent>{
     private ChoiceBox txtRestaurantArt;
     private TextField txtPersonenzahl;
     private Label buchungsAnzeige;
+    private ComboBox comboBox;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -50,11 +52,14 @@ public class FensterFX extends Application implements EventHandler<ActionEvent>{
         txtPersonenzahl = new TextField();
         lblPersonenZahl = new Label("Wieviele Personen kommen?");
         buchungsAnzeige = new Label();
+        TischMaker tm = new TischMaker(30);
+        comboBox = new ComboBox();
+        comboBox.getItems().addAll(tm.getRestaurantArt());
+        comboBox.setPromptText("Bitte wählen Sie die Art des Restaurants");
         
         stage.setTitle("Unsere Tische");
         
-        ChoiceBox<String> choiceBox = new ChoiceBox<>();
-        choiceBox.getItems().addAll("Hamburg", "dasdasdasdasd");
+        
         
         GridPane root = new GridPane();
         root.setAlignment(Pos.CENTER);
@@ -65,13 +70,15 @@ public class FensterFX extends Application implements EventHandler<ActionEvent>{
         root.setPadding(grenzen);
         
         root.add(lblPersonenZahl,0,0,2,1);
-        root.add(txtPersonenzahl,1,0);
+        root.add(txtPersonenzahl,1,0); // column = 1; row = 0
         root.add(lblRestaurantOrt,0,1);
         root.add(txtRestaurantOrt,1, 1);
-        root.add(lblRestaurantArt,2,1);
-        root.add(txtRestaurantArt,2,2);
-        root.add(buchen, 0, 2, 2, 1);
-        root.add(buchungsAnzeige, 0,3,2,1);
+        root.add(comboBox, 1,2);
+//        root.add(lblRestaurantArt,2,1);
+//        root.add(txtRestaurantArt,2,2);
+        root.add(buchen, 0, 3, 2, 1);
+        root.add(buchungsAnzeige, 0,4,2,1);
+      
         root.setId("ROOT");
         
         buchen.setOnAction(this); 
@@ -92,10 +99,11 @@ public class FensterFX extends Application implements EventHandler<ActionEvent>{
     public void handle(ActionEvent t) {
         System.out.println("Event+ "+t);
         System.out.println("Buchungsservice"+bs);
-        Tisch tisch = bs.buchen(4);
+        Tisch tisch = bs.buchen(4, 2, "");
+        Tisch tische = bs.buchen(4, 2, comboBox.getSelectionModel().getSelectedItem().toString());
         
-        System.out.println("Tisch "+tisch);
-        buchungsAnzeige.setText(tisch.toString());
+        System.out.println("Tisch "+tische);
+        buchungsAnzeige.setText(tische.toString());
     }
 
 }

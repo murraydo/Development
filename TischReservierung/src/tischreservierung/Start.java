@@ -18,6 +18,8 @@ import com.rest.model.TischMaker;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import static tischreservierung.TischAuswahl.istRestaurantArt;
+import static tischreservierung.TischAuswahl.istRestaurantOrt;
 
 /**
  *
@@ -32,8 +34,20 @@ public class Start {
      */
     public static void main(String[] args) {
         k = 0;
+        
         TischDao tischDao = new TischDaoListImpl();
         BuchungsService bs = new BuchungsService(tischDao);
+        List<Tisch> listeVonTischAuswahlArten = BuchungsService.listeVonRestaurantArten(new TischMaker(30).getAllTische(), istRestaurantArt);
+        System.out.println("############################### \n");
+        for (Tisch tisch : listeVonTischAuswahlArten) {
+            System.out.println(tisch);
+        }
+        List<Tisch> listeVonTischAuswahlOrte = BuchungsService.listeVonRestaurantOrte(new TischMaker(30).getAllTische(), istRestaurantOrt);
+         System.out.println("############################### \n");
+        for (Tisch tische : listeVonTischAuswahlOrte) {
+            System.out.println(tische);
+        }
+        
         //Konsole gui = new Konsole(bs);
 //      Fenster gui = new Fenster(bs);
 //     gui.setVisible(true);
@@ -42,14 +56,14 @@ public class Start {
 // 
     }
 
-    public static List<Tisch> auswahl(List<Tisch> alle, Predicate<Tisch> tp) {
-        List<Tisch> auswahl = new ArrayList<>();
-        for (Tisch tisch : alle) {
-            if (tp.test(tisch)) {
-                auswahl.add(tisch);
-            }
-        }
-        return auswahl;
-    }
+//    public static List<Tisch> auswahl(List<Tisch> alle, Predicate<Tisch> tp) {
+//        List<Tisch> auswahl = new ArrayList<>();
+//        for (Tisch tisch : alle) {
+//            if (tp.test(tisch)) {
+//                auswahl.add(tisch);
+//            }
+//        }
+//        return auswahl;
+//    }
 
 }

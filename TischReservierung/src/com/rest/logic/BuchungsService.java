@@ -8,6 +8,7 @@ package com.rest.logic;
 import com.rest.model.TischDao;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  *
@@ -16,6 +17,7 @@ import java.util.List;
 public class BuchungsService {
     private List<Tisch> alleTische;
     private TischDao td;
+    private Predicate<Tisch> pT;
     
     /**
      * 
@@ -57,4 +59,36 @@ public class BuchungsService {
         }
         return null;
     }
+    public Tisch buchen(int person, double quali, String restaurantArt){
+        for(Tisch tisch : alleTische){
+            if(!tisch.isBelegt() && tisch.getPlaetze()>=person && tisch.getBewertung()>=quali && tisch.getRestaurantArt().equals(restaurantArt)){
+                //ggf noch nach einem Tisch suchen, der so klein wie möglich ist
+                tisch.setBelegt(true);
+                return tisch;
+            }
+        }
+        return null;
+    }
+    
+    
+     public static List<Tisch> listeVonRestaurantOrte (List<Tisch> alleTische, Predicate<Tisch> rOrte){
+        List<Tisch> restaurantOrte = new ArrayList<>();
+        for(Tisch tisch : alleTische){
+            if(rOrte.test(tisch)){
+                restaurantOrte.add(tisch);
+            }
+        }
+        return restaurantOrte;
+    }
+        public static List<Tisch> listeVonRestaurantArten (List<Tisch> alleTische,  Predicate<Tisch> rArten){
+        List<Tisch> restaurantArten = new ArrayList<>();
+        for(Tisch tisch : alleTische){
+            if(rArten.test(tisch)){
+                restaurantArten.add(tisch);
+            }
+        }
+        return restaurantArten;
+    }
+        
+ 
 }

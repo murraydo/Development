@@ -34,11 +34,15 @@ public class Tisch {
      * Ein reservierter Tisch wird ab der Abgabe der Bewertung frei gegeben
      */
     private boolean belegt = false;
-    
+    /**
+     * resstaurantArt zB. Chinesisch
+     */
     private String restaurantArt;
-    
+    /**
+     * Ort des Restaurantbesuches
+     */
     private String restaurantOrt;
-    
+    // Constructor
     public Tisch(String restaurantArt, String restaurantOrt, double bewertung, int plaetze){
        this.restaurantArt = restaurantArt;
        this.restaurantOrt = restaurantOrt;
@@ -46,6 +50,13 @@ public class Tisch {
        this.plaetze = plaetze;
    }
 
+    public Tisch(int stuehle ) {
+        this.plaetze = stuehle;
+    }
+    public Tisch(){}
+
+        
+    //Methoden
     public String getRestaurantArt() {
         return restaurantArt;
     }
@@ -66,16 +77,7 @@ public class Tisch {
      *
      * @param stuehle ist Anzahl der Plätze dieses Tischs
      */
-    public Tisch(int stuehle ) {
-        this.plaetze = stuehle;
-    }
-    public Tisch(){
-        
-    }
-
-   
-
-    //Methoden
+    
     public int getPlaetze() {
         return plaetze;
     }
