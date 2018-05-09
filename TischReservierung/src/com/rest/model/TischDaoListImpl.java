@@ -18,16 +18,8 @@ public class TischDaoListImpl implements TischDao{
     private List<Tisch> tische = new ArrayList<>();
     
     public TischDaoListImpl(){
-        int nr=1;
-        int tischeAnzahl = (int)(Math.random()*30+1);
-        for(int i=0; i<tischeAnzahl;i++){
-            int stuhlZahl=(int)(Math.random()*10+1);
-            Tisch t = new Tisch(stuhlZahl);
-            t.setTischNr(nr);
-            nr++;
-            tische.add(t); 
-            //System.out.println("T: "+t);
-        }
+        TischMaker tischmaker = new TischMaker(30);
+        tische = tischmaker.getAllTische();
     }
 
     @Override

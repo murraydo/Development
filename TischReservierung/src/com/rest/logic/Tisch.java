@@ -5,6 +5,8 @@
  */
 package com.rest.logic;
 
+import java.util.Random;
+
 /**
  * Diese Tische sollen reserviert werden, dabei muss die Anzahl der Gäste
  * ko0ntrolliert werden. Reservierte Tische können bewertet werden
@@ -32,15 +34,46 @@ public class Tisch {
      * Ein reservierter Tisch wird ab der Abgabe der Bewertung frei gegeben
      */
     private boolean belegt = false;
+    
+    private String restaurantArt;
+    
+    private String restaurantOrt;
+    
+    public Tisch(String restaurantArt, String restaurantOrt, double bewertung, int plaetze){
+       this.restaurantArt = restaurantArt;
+       this.restaurantOrt = restaurantOrt;
+       this.bewertung = bewertung;
+       this.plaetze = plaetze;
+   }
 
+    public String getRestaurantArt() {
+        return restaurantArt;
+    }
+
+    public void setRestaurantArt(String restaurantArt) {
+        this.restaurantArt = restaurantArt;
+    }
+
+    public String getRestaurantOrt() {
+        return restaurantOrt;
+    }
+
+    public void setRestaurantOrt(String restaurantOrt) {
+        this.restaurantOrt = restaurantOrt;
+    }
     /**
      * Hier wird die Anzahl der Plätze am Tisch festgelegt.
      *
      * @param stuehle ist Anzahl der Plätze dieses Tischs
      */
-    public Tisch(int stuehle) {
+    public Tisch(int stuehle ) {
         this.plaetze = stuehle;
     }
+    public Tisch(){
+        
+    }
+
+   
 
     //Methoden
     public int getPlaetze() {
@@ -82,7 +115,8 @@ public class Tisch {
 
     @Override
     public String toString() {
-        return " Tisch [Plätze:  " + this.plaetze + " Bewertung: " + this.bewertung + " Tischnummer: " + this.tischNr + "]";
+        return " Tisch [Plätze:  " + this.plaetze + " ->  Bewertung: " + this.bewertung + " ->  Tischnummer: " + this.tischNr + 
+                " -> Ort des Restaurants: " +this.restaurantOrt + " -> Art des Restaurants: " + this.restaurantArt +  " ->  Durchschnittliche Bewertung: " + this.bewertung + " ]";
     }
 /*
     @Override

@@ -22,8 +22,9 @@ public class BuchungsService {
      * Hier wird die Datenquelle übergeben
      */
     public BuchungsService( TischDao td){
-        alleTische=td.getAllTisch();
-        this.td=td;
+        alleTische = td.getAllTisch();
+        alleTische.forEach(System.out::println);
+        this.td = td;
     }
     /**
      * Tisch buchen für eine Anzahl von Personen

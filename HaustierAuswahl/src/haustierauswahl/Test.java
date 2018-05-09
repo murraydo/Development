@@ -75,7 +75,7 @@ public class Test {
  * Tischreservierung:
  * 1) TischDaoListImpl: Tischerstellung in TischMaker auslagern
  * 2) Tischkonstruktor anpassen, so dass Tische zu Beginn schon ein Bewertung zwische 0 und 5 haben
- * 3) TischMaker: Tische estellen mit fälliger Personenzahl, Qualität
+ * 3) TischMaker: Tische estellen mit zufälliger Personenzahl, Qualität
  * 4) Auswahlklasse: statische Methoden zur Auswahl von "geeigneten" Tischen
  * 5) Buchungsservice anpassen, so dass nach Listen mit vorgegebenen Kriterien gesucht werden kann
  * 6) Mindestens eine GUI Klasse anpssen umd den neuen Buchungsservice zu testen
