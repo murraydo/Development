@@ -42,12 +42,24 @@ public class Tisch {
      * Ort des Restaurantbesuches
      */
     private String restaurantOrt;
+    /**
+     * ZahlungsArt
+     */
+    private String zahlungsArt;
+    /**
+     * 
+     * @param restaurantArt
+     * @param restaurantOrt
+     * @param bewertung
+     * @param plaetze 
+     */
     // Constructor
-    public Tisch(String restaurantArt, String restaurantOrt, double bewertung, int plaetze){
+    public Tisch(String restaurantArt, String restaurantOrt, double bewertung, int plaetze, String zahlungsArt){
        this.restaurantArt = restaurantArt;
        this.restaurantOrt = restaurantOrt;
        this.bewertung = bewertung;
        this.plaetze = plaetze;
+       this.zahlungsArt = zahlungsArt;
    }
 
     public Tisch(int stuehle ) {
@@ -106,6 +118,15 @@ public class Tisch {
         this.belegt = belegt;
     }
 
+    public String getZahlungsArt() {
+        return zahlungsArt;
+    }
+
+    public void setZahlungsArt(String zahlungsArt) {
+        this.zahlungsArt = zahlungsArt;
+    }
+    
+
     public void bewerten(double bewertung) {
         double temp = this.bewertung * anzahlBewertungen;
         temp += bewertung;
@@ -117,8 +138,13 @@ public class Tisch {
 
     @Override
     public String toString() {
-        return " Tisch [Plätze:  " + this.plaetze + " ->  Bewertung: " + this.bewertung + " ->  Tischnummer: " + this.tischNr + 
-                " -> Ort des Restaurants: " +this.restaurantOrt + " -> Art des Restaurants: " + this.restaurantArt +  " ->  Durchschnittliche Bewertung: " + this.bewertung + " ]";
+        return  "\nDein gebuchter Tisch: \n" 
+                + "Bestellte Plätze: "   + this.plaetze 
+                + "\nDeine Tischnummer: " + this.tischNr 
+                + "\nOrt des Restaurants: " +this.restaurantOrt 
+                + "\nArt des Restaurants: " + this.restaurantArt 
+                + "\nDurchschnittliche Bewertung: " + this.bewertung
+                + "\nZahlungsart: " + this.zahlungsArt ;
     }
 /*
     @Override

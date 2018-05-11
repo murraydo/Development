@@ -18,9 +18,10 @@ public class TischMaker {
 
     private List<Tisch> tische = new ArrayList<Tisch>();
     private Integer[] bewertung = {1, 2, 3, 4, 5};
-    private Integer[] stuhlAnzahl = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    private Integer[] plaetze = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     private String restaurantArt[] = {"Chinesich", "Koreanisch", "Indisch", "Marrokanisch", "Burger", "Japanisch(Sushi)", "Afrikanisch"};
     private String restaurantOrt[] = {"Hamburg", "Berlin", "München", "Hannover", "Köln", "Freiburg"};
+    private String zahlungsArt[] = {"Visa", "Mastercard" ,"Bar"};
 
     /**
      *
@@ -33,7 +34,8 @@ public class TischMaker {
                     restaurantArt[new Random().nextInt(restaurantArt.length)],
                     restaurantOrt[new Random().nextInt(restaurantOrt.length)],
                     bewertung[new Random().nextInt(bewertung.length)],
-                    stuhlAnzahl[new Random().nextInt(stuhlAnzahl.length)]
+                    plaetze[new Random().nextInt(plaetze.length)],
+                    zahlungsArt[new Random().nextInt(zahlungsArt.length)]
             ));
         }
     }
@@ -49,7 +51,8 @@ public class TischMaker {
     public String[] getRestaurantOrt() {
         return restaurantOrt;
     }
-    
-    
-    
+
+    public String[] getZahlungsArt() {
+        return zahlungsArt;
+    }
 }

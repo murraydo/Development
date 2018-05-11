@@ -5,6 +5,12 @@
  */
 package lambdas;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Predicate;
+
 /**
  *
  * @author Sanne
@@ -44,3 +50,32 @@ public class Lambdas {
         m.dasKlapptSo();
     }
 }
+
+//        Comparator<String> comparatorAnonymeKlasse = new Comparator<String>(){
+//            public int compare(String s1, String s2){
+//                return s1.length() - s2.length();
+//            }
+//        };
+//        
+//        Comparator<String> comparatorLamda = (String s1, String s2) -> { return s1.length()-s2.length();};
+//        
+//        comparatorLamda = (s1,s2) ->{return s1.length()-s2.length();};
+//        comparatorLamda = (s1,s2)->s1.length()-s2.length();
+//        
+//        List<String> wörter = Arrays.asList("AA", "A", "AAAA", "AAA");
+//        System.out.println(wörter);
+//        Collections.sort(wörter,comparatorAnonymeKlasse);
+//        System.out.println(wörter);
+//        wörter = Arrays.asList("AA", "A", "AAAA", "AAA");
+//        Collections.sort(wörter, comparatorLamda);
+//        System.out.println(wörter);
+//        
+//        Predicate<String> wortLängerAlsFünfBuchstaben = (String s) -> s.length()>5;
+//        wortLängerAlsFünfBuchstaben = (s)->s.length()>5;
+//        wortLängerAlsFünfBuchstaben = s ->s.length()>5;
+//        System.out.println(wortLängerAlsFünfBuchstaben.test("HalloWelt"));
+//        
+//        Runnable runnable = ()->System.out.println("Hallo Welt!");
+//        runnable.run();
+//    }
+//}

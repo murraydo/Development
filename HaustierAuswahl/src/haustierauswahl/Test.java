@@ -32,24 +32,24 @@ public class Test {
         auswahl=listeVonPferd(alleTiere);
         auswahl.forEach(System.out::println);//nur um schnell eine Anzeige zu ermöglichen
         System.out.println("***********wieder die Pferde*******");
-        auswahl=auswahl(alleTiere, HaustierAuswahl.istPferd);
+        auswahl=auswahlListe(alleTiere, HaustierAuswahl.istPferd);
         auswahl.forEach(System.out::println);
         System.out.println("***********alte Tiere***********");
-        auswahl=auswahl(alleTiere, HaustierAuswahl.istAlt);
+        auswahl=auswahlListe(alleTiere, HaustierAuswahl.istAlt);
         auswahl.forEach(System.out::println);
         System.out.println("*****Alle Schokokuchen**********");
-        auswahl=auswahl(alleTiere,HaustierAuswahl.heisstSchokokuchen);
+        auswahl=auswahlListe(alleTiere,HaustierAuswahl.heisstSchokokuchen);
         auswahl.forEach(System.out::println); 
          System.out.println("*****Alle Charlys**********");
-        auswahl=auswahl(alleTiere, pet->pet.getName().equals("Charly"));
+        auswahl=auswahlListe(alleTiere, pet->pet.getName().equals("Charly"));
         auswahl.forEach(System.out::println); 
         System.out.println("***********alle Pferde, die älter sind als 3");
-        auswahl=auswahl(alleTiere, pet->pet.getArt().equals("Pferd") && pet.getAlter()>3);
+        auswahl=auswahlListe(alleTiere, pet->pet.getArt().equals("Pferd") && pet.getAlter()>3);
         auswahl.forEach(System.out::println); 
         System.out.println("********Tier a jünger als x");
         int jung = 4;
         String name = "Schokokuchen";
-        auswahl=auswahl(alleTiere, pet->pet.getName().equals(name) && pet.getAlter()<9);
+        auswahl=auswahlListe(alleTiere, pet->pet.getName().equals(name) && pet.getAlter()<9);
         auswahl.forEach(System.out::println); 
     }
     public static List<Haustier> listeVonPferd(List<Haustier> alle){
@@ -61,7 +61,9 @@ public class Test {
         }
         return pferde;
     }
-    public static List<Haustier> auswahl(List<Haustier> alle, Predicate<Haustier> hp){
+    public static List<Haustier> auswahlListe(List<Haustier> alle, Predicate<Haustier> hp){
+        //List Haustier -> Listung aller erstellten Haustiere
+        // Predicate Haustier hp -> nur für den Test zuständig
           List<Haustier> auswahl=new ArrayList<>();
           for(Haustier pet : alle){
               if(hp.test(pet)){

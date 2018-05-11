@@ -16,8 +16,7 @@ import java.util.function.Predicate;
  */
 public class BuchungsService {
     private List<Tisch> alleTische;
-    private TischDao td;
-    private Predicate<Tisch> pT;
+    private TischDao td;;
     
     /**
      * 
@@ -25,7 +24,7 @@ public class BuchungsService {
      */
     public BuchungsService( TischDao td){
         alleTische = td.getAllTisch();
-        alleTische.forEach(System.out::println);
+//        alleTische.forEach(System.out::println);
         this.td = td;
     }
     /**
@@ -69,26 +68,26 @@ public class BuchungsService {
         }
         return null;
     }
-    
-    
-     public static List<Tisch> listeVonRestaurantOrte (List<Tisch> alleTische, Predicate<Tisch> rOrte){
-        List<Tisch> restaurantOrte = new ArrayList<>();
+    public Tisch buchen(int person, double quali, String restaurantArt, String restaurantOrt){
         for(Tisch tisch : alleTische){
-            if(rOrte.test(tisch)){
-                restaurantOrte.add(tisch);
+            if(!tisch.isBelegt() && tisch.getPlaetze()>=person && tisch.getBewertung()>=quali && tisch.getRestaurantArt().equals(restaurantArt) && tisch.getRestaurantOrt().equals(restaurantOrt)){
+                //ggf noch nach einem Tisch suchen, der so klein wie möglich ist
+                tisch.setBelegt(true);
+                return tisch;
             }
         }
-        return restaurantOrte;
+        return null;
     }
-        public static List<Tisch> listeVonRestaurantArten (List<Tisch> alleTische,  Predicate<Tisch> rArten){
-        List<Tisch> restaurantArten = new ArrayList<>();
+    
+    
+     public List<Tisch> listeAllerTests (List<Tisch> alleTische, Predicate<Tisch> alleAbfragen){
+        List<Tisch> alleMeineAbfragen = new ArrayList<>();
         for(Tisch tisch : alleTische){
-            if(rArten.test(tisch)){
-                restaurantArten.add(tisch);
+            if(alleAbfragen.test(tisch)){
+                alleMeineAbfragen.add(tisch);
             }
         }
-        return restaurantArten;
+        return alleMeineAbfragen;
     }
-        
  
 }

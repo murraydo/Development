@@ -71,9 +71,9 @@ public class Schleifen {
         int i = 0;
         System.out.println("Der Initialwert i: " + i);
         System.out.println("Der momentanet Wert von i++: " + i++); // 1 
-        System.out.println("Der momentanet Wert von i nach Post-Decrement: " + i);
+        System.out.println("Der momentanet Wert von i nach Post-Increment: " + i);
         System.out.println("Der momentanet Wert von ++i: " + ++i);
-        System.out.println("Der momentanet Wert von i nach dem Pres-Decrement: " + i);
+        System.out.println("Der momentanet Wert von i nach dem Pre-Increment: " + i);
    
 //     int fibonacci = 12;
 //     int ergebnis;
