@@ -69,6 +69,8 @@ public class BuchungsService {
         return null;
     }
     public Tisch buchen(int person, double quali, String restaurantArt, String restaurantOrt){
+        System.out.println("--------------------!!!!!!!!!!!!!!!!___________________");
+        System.out.println(restaurantOrt);
         for(Tisch tisch : alleTische){
             if(!tisch.isBelegt() && tisch.getPlaetze()>=person && tisch.getBewertung()>=quali && tisch.getRestaurantArt().equals(restaurantArt) && tisch.getRestaurantOrt().equals(restaurantOrt)){
                 //ggf noch nach einem Tisch suchen, der so klein wie möglich ist

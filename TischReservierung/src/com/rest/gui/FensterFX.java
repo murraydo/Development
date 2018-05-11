@@ -51,7 +51,7 @@ public class FensterFX extends Application implements EventHandler<ActionEvent> 
     private Label buchungsAnzeige;
     private Button buchen;
 
-    private CheckBox box;
+    private CheckBox boxCheck;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -86,6 +86,7 @@ public class FensterFX extends Application implements EventHandler<ActionEvent> 
         
         CheckBox boxCheck = new CheckBox(" Ich bin damit einverstanden, dass Sie mich mit Werbung nerven dürfen.\n Bitte reichen Sie doch auch meine Daten an die NSA weiter. \n"
                 + " Falls Sie noch irgendwelche Passwörter oder andere Zugansgdaten brauchen, so geben Sie bitte Bescheid.");
+        boxCheck.setOnAction(this);
         
         stage.setTitle("Unsere Tische");
 
@@ -105,9 +106,9 @@ public class FensterFX extends Application implements EventHandler<ActionEvent> 
         root.add(comboBoxRestaurantArt, 1, 2);
         root.add(lblZahlungsArt,0,3);
         root.add(comboBoxZahlungsArt,1,3);
-//        root.add(box,0,3);
-        root.add(buchen, 0, 4, 2, 1);
-        root.add(buchungsAnzeige, 0, 5, 2, 1);
+        root.add(boxCheck,1,4);
+        root.add(buchen, 0, 5, 2, 1);
+        root.add(buchungsAnzeige, 0, 6, 2, 1);
 
         root.setId("ROOT");
         
@@ -130,16 +131,17 @@ public class FensterFX extends Application implements EventHandler<ActionEvent> 
 
     @Override
     public void handle(ActionEvent t) {
-        System.out.println("Event+ " + t);
-        System.out.println("Buchungsservice" + bs);
-        Tisch tisch = bs.buchen(4, 2, "");
-        Tisch tische = bs.buchen(4, 2, comboBoxRestaurantArt.getSelectionModel().getSelectedItem().toString());
-        Tisch tischen = bs.buchen(4, 2, comboBoxRestaurantStadt.getSelectionModel().getSelectedItem().toString());
-        Tisch zahlungsArt = bs.buchen(4, 2, comboBoxZahlungsArt.getSelectionModel().getSelectedItem().toString());
-
-        
-        System.out.println("Tisch " + tische);
-        buchungsAnzeige.setText(tische.toString());
+//        System.out.println("Event+ " + t);
+//        System.out.println("Buchungsservice" + bs);
+//        Tisch tisch = bs.buchen(4, 2, "");
+//        Tisch tische = bs.buchen(4, 2, comboBoxRestaurantArt.getSelectionModel().getSelectedItem().toString(),comboBoxRestaurantStadt.getSelectionModel().getSelectedItem().toString());
+//
+//        Tisch zahlungsArt = bs.buchen(4, 2, comboBoxZahlungsArt.getSelectionModel().getSelectedItem().toString());
+//
+//        
+//        System.out.println("Tisch " + tische);
+//        buchungsAnzeige.setText(tische.toString());
+System.out.println(t.getSource());
     }
     
 

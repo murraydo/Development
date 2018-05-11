@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.function.Predicate;
 import tischreservierung.TischAuswahl.*;
 
-
 /**
  *
  * @author Sanne
@@ -33,12 +32,12 @@ public class Start {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        k = 0; 
+        k = 0;
         TischDao tischDao = new TischDaoListImpl();
         System.out.println("--- Beginn des BuchungsServices ---");
         BuchungsService bs = new BuchungsService(tischDao);
         System.out.println("--- Ende des BuchungsServices ------");
-        
+
         TischMaker tm = new TischMaker(30);
         List<Tisch> alleTische = tm.getAllTische();
         List<Tisch> meineTests = new ArrayList<>();
@@ -53,16 +52,15 @@ public class Start {
         meineTests = bs.listeAllerTests(alleTische, TischAuswahl.bewertungGrößerOderGleich4);
 //      System.out.println(meineTests);
         meineTests.forEach(System.out::println);
-         System.out.println("################################################\n");
+        System.out.println("################################################\n");
         System.out.println("# Ausgabe aller Restaurants in denen man Burger essen kann \n");
         System.out.println("################################################\n");
         meineTests = bs.listeAllerTests(alleTische, TischAuswahl.listeBurgerEssenGehen);
         meineTests.forEach(System.out::println);
-     
+
 //      Konsole gui = new Konsole(bs);
 //      Fenster gui = new Fenster(bs);
 //      gui.setVisible(true);
-
-      new FensterFX().anzeigen(bs); 
+        new FensterFX().anzeigen(bs);
     }
 }
