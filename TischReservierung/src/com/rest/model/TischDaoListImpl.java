@@ -18,8 +18,9 @@ public class TischDaoListImpl implements TischDao{
     private List<Tisch> tische = new ArrayList<>();
     
     public TischDaoListImpl(){
-        TischMaker tischmaker = new TischMaker(100);
+        TischMaker tischmaker = new TischMaker(1000);
         tische = tischmaker.getAllTische();
+        tische.forEach(System.out::println);
     }
 
     @Override

@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/com/rest/logic/BuchungsService.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/tischreservierung/Start.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/com/rest/gui/FensterFX.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/com/rest/model/TischDaoListImpl.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/tischreservierung/TischAuswahl.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/com/rest/logic/Tisch.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/com/rest/gui/Fenster.java</file>
-            <file>file:/C:/Users/mvatandas/Development/TischReservierung/src/com/rest/model/TischMaker.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

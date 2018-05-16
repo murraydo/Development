@@ -19,7 +19,25 @@ public abstract class TischAuswahl {
         }
     };
  
+    public static Predicate<Tisch> alleFreienTischeNachOrt(String ort){
+        return (Tisch t) -> t.getRestaurantOrt().equals(ort)&& !t.isBelegt();
+    }
+    public static Predicate<Tisch> alleFreienTischeNachArt(String art2){
+        return (Tisch t) -> t.getRestaurantArt().equals(art2)&& !t.isBelegt();
+    }
+    
+        public static Predicate<Tisch> alleFreienTischNachArt(String art){
+        return (Tisch t) -> t.getRestaurantArt().equals(art)&& !t.isBelegt();
+    }
+    
     public static Predicate<Tisch> wieGutUndWieviel(int quali, int anzahl){
         return (Tisch t) -> t.getBewertung()>=quali&&t.getPlaetze()>=anzahl;
+    }
+    public static Predicate<Tisch> alleAnzeigen(String ort, String art, String zahlung){
+        return (Tisch t) ->
+                t.getRestaurantOrt().equals(ort)&& !t.isBelegt() &&
+                t.getRestaurantArt().equals(art)&& !t.isBelegt() &&
+                t.getZahlungsArt().equals(zahlung)&& !t.isBelegt();
+                        
     }
 }

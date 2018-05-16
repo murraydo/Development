@@ -27,6 +27,14 @@ public class BuchungsService {
 //        alleTische.forEach(System.out::println);
         this.td = td;
     }
+    
+    public Tisch show(String restaurantArt){
+        for (Tisch tisch : alleTische){
+            
+            return tisch;
+        }
+        return null;
+    }
     /**
      * Tisch buchen für eine Anzahl von Personen
      * Liefert den ersten gefunden Tisch zurück, auch wenn dieser viel größer ist
@@ -68,11 +76,15 @@ public class BuchungsService {
         }
         return null;
     }
-    public Tisch buchen(int person, double quali, String restaurantArt, String restaurantOrt){
-        System.out.println("--------------------!!!!!!!!!!!!!!!!___________________");
-        System.out.println(restaurantOrt);
+    public Tisch buchen(int person, double quali, String restaurantArt, String restaurantOrt, String zahlungsArt){
+//        System.out.println("--------------------!!!!!!!!!!!!!!!!___________________");
+//        System.out.println(restaurantOrt);
         for(Tisch tisch : alleTische){
-            if(!tisch.isBelegt() && tisch.getPlaetze()>=person && tisch.getBewertung()>=quali && tisch.getRestaurantArt().equals(restaurantArt) && tisch.getRestaurantOrt().equals(restaurantOrt)){
+            if(!tisch.isBelegt() && tisch.getPlaetze()>=person 
+                    && tisch.getBewertung()>=quali && 
+                    tisch.getRestaurantArt().equals(restaurantArt) && 
+                    tisch.getRestaurantOrt().equals(restaurantOrt) && 
+                    tisch.getZahlungsArt().equals(zahlungsArt)){
                 //ggf noch nach einem Tisch suchen, der so klein wie möglich ist
                 tisch.setBelegt(true);
                 return tisch;
@@ -82,7 +94,7 @@ public class BuchungsService {
     }
     
     
-     public List<Tisch> listeAllerTests (List<Tisch> alleTische, Predicate<Tisch> alleAbfragen){
+     public List<Tisch> listeAllerTests (Predicate<Tisch> alleAbfragen){
         List<Tisch> alleMeineAbfragen = new ArrayList<>();
         for(Tisch tisch : alleTische){
             if(alleAbfragen.test(tisch)){

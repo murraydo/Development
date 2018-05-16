@@ -16,10 +16,6 @@ import java.util.List;
 public interface TischDao {
 
     public List<Tisch> getAllTisch();
-    TischMaker tm = new TischMaker(30);
-    List<Tisch> alleTische = tm.getAllTische();
-    List<Tisch> auswahl = new ArrayList<>();
-
     /**
      * erstmal nicht verwendet, soll später aktiviert werden
      */

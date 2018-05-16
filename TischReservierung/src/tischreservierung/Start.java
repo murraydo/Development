@@ -34,29 +34,29 @@ public class Start {
     public static void main(String[] args) {
         k = 0;
         TischDao tischDao = new TischDaoListImpl();
-        System.out.println("--- Beginn des BuchungsServices ---");
+//        System.out.println("--- Beginn des BuchungsServices ---");
         BuchungsService bs = new BuchungsService(tischDao);
-        System.out.println("--- Ende des BuchungsServices ------");
-
-        TischMaker tm = new TischMaker(30);
-        List<Tisch> alleTische = tm.getAllTische();
-        List<Tisch> meineTests = new ArrayList<>();
-        System.out.println("################################################\n");
-        System.out.println("# Ausgabe aller Restaurants in Hamburg \n");
-        System.out.println("################################################\n");
-        meineTests = bs.listeAllerTests(alleTische, TischAuswahl.istHamburg);
-        meineTests.forEach(System.out::println);
-        System.out.println("################################################\n");
-        System.out.println("# Ausgabe aller Restaurants deren Bewertung größer oder gleich 4 ist \n");
-        System.out.println("################################################\n");
-        meineTests = bs.listeAllerTests(alleTische, TischAuswahl.bewertungGrößerOderGleich4);
-//      System.out.println(meineTests);
-        meineTests.forEach(System.out::println);
-        System.out.println("################################################\n");
-        System.out.println("# Ausgabe aller Restaurants in denen man Burger essen kann \n");
-        System.out.println("################################################\n");
-        meineTests = bs.listeAllerTests(alleTische, TischAuswahl.listeBurgerEssenGehen);
-        meineTests.forEach(System.out::println);
+//        System.out.println("--- Ende des BuchungsServices ------");
+//
+//        TischMaker tm = new TischMaker(30);
+//        List<Tisch> alleTische = tm.getAllTische();
+//        List<Tisch> meineTests = new ArrayList<>();
+//        System.out.println("################################################\n");
+//        System.out.println("# Ausgabe aller Restaurants in Hamburg \n");
+//        System.out.println("################################################\n");
+//        meineTests = bs.listeAllerTests(alleTische, TischAuswahl.istHamburg);
+//        meineTests.forEach(System.out::println);
+//        System.out.println("################################################\n");
+//        System.out.println("# Ausgabe aller Restaurants deren Bewertung größer oder gleich 4 ist \n");
+//        System.out.println("################################################\n");
+//        meineTests = bs.listeAllerTests(alleTische, TischAuswahl.bewertungGrößerOderGleich4);
+////      System.out.println(meineTests);
+//        meineTests.forEach(System.out::println);
+//        System.out.println("################################################\n");
+//        System.out.println("# Ausgabe aller Restaurants in denen man Burger essen kann \n");
+//        System.out.println("################################################\n");
+//        meineTests = bs.listeAllerTests(alleTische, TischAuswahl.listeBurgerEssenGehen);
+//        meineTests.forEach(System.out::println);
 
 //      Konsole gui = new Konsole(bs);
 //      Fenster gui = new Fenster(bs);

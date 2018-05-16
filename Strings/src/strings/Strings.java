@@ -14,6 +14,12 @@ public class Strings {
         int indexTest = text.indexOf('o');
         System.out.println(indexTest);
         System.out.println(containSpam(text));
+        
+        System.out.println("#####################");
+        String numbers = "012345678"; 
+     System.out.println(numbers.substring(1, 4)); 
+     System.out.println(numbers.substring(7, 7)); 
+      System.out.println(numbers.substring(7));
     }
 
     

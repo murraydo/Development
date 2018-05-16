@@ -55,4 +55,7 @@ public class TischMaker {
     public String[] getZahlungsArt() {
         return zahlungsArt;
     }
+    public Integer[] getBewertung(){
+        return bewertung;
+    }
 }

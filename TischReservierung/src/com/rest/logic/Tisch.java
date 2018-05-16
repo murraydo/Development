@@ -137,14 +137,23 @@ public class Tisch {
     }
 
     @Override
-    public String toString() {
-        return  "\nDein gebuchter Tisch: \n" 
-                + "Bestellte Plätze: "   + this.plaetze 
-                + "\nDeine Tischnummer: " + this.tischNr 
-                + "\nOrt des Restaurants: " +this.restaurantOrt 
-                + "\nArt des Restaurants: " + this.restaurantArt 
-                + "\nDurchschnittliche Bewertung: " + this.bewertung
-                + "\nZahlungsart: " + this.zahlungsArt ;
+//    public String toString() {
+//        return  "\nDein gebuchter Tisch: \n" 
+//                + "Bestellte Plätze: "   + this.plaetze 
+//                + "\nDeine Tischnummer: " + this.tischNr 
+//                + "\nOrt des Restaurants: " +this.restaurantOrt 
+//                + "\nArt des Restaurants: " + this.restaurantArt 
+//                + "\nDurchschnittliche Bewertung: " + this.bewertung
+//                + "\nZahlungsart: " + this.zahlungsArt ;
+//    }
+    public String toString(){
+        return 
+                 "Bestellte Plätze: "   + this.plaetze 
+                + "\tDeine Tischnummer: " + this.tischNr 
+                + "\tOrt des Restaurants: " +this.restaurantOrt 
+                + "\tArt des Restaurants: " + this.restaurantArt 
+                + "\tDurchschnittliche Bewertung: " + this.bewertung
+                + "\tZahlungsart: " + this.zahlungsArt ;
     }
 /*
     @Override
